@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Custom layout update handle CMS page Magento 2.3.4+.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    	<referenceContainer name="content"><block class="Magento\Cms\Block\Block" name="block_slider2">    <arguments>        <argument name="block_id" xsi:type="string">block-slider2</argument>    </arguments></block><block class="Magento\Cms\Block\Block" name="block_deals">    <arguments>        <argument name="block_id" xsi:type="string">block-deals</argument>    </arguments></block><block class="Magento\Cms\Block\Block" name="block_categories">    <arguments>        <argument name="block_id" xsi:type="string">block-categories</argument>    </arguments></block><block class="Magento\Cms\Block\Block" name="block_product1">    <arguments>        <argument name="block_id" xsi:type="string">block-product-1</argument>    </arguments></block><block class="Magento\Cms\Block\Block" name="block_banner1">    <arguments>        <argument name="block_id" xsi:type="string">block-banner-1</argument>    </arguments></block><block class="Magento\Cms\Block\Block" name="block_product2">    <arguments>        <argument name="block_id" xsi:type="string">block-product-2</argument>    </arguments></block><block class="Magento\Cms\Block\Block" name="block_banner2">    <arguments>        <argument name="block_id" xsi:type="string">block-banner-2</argument>    </arguments></block><block class="Magento\Cms\Block\Block" name="block_product3">    <arguments>        <argument name="block_id" xsi:type="string">block-product-3</argument>    </arguments></block><block class="Magento\Cms\Block\Block" name="block_banner3">    <arguments>        <argument name="block_id" xsi:type="string">block-banner-3</argument>    </arguments></block><block class="Magento\Cms\Block\Block" name="block_brand">    <arguments>        <argument name="block_id" xsi:type="string">block-brand</argument>    </arguments></block></referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,48 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$id = $block->getIdModifier() ? '-' . $block->getIdModifier() : '';
+$currency_custom = $this->getChildHtml('currency_custom');
+$store_language = $this->getChildHtml('store_language_custom');
+?>
+<?php if($currency_custom || $store_language): ?>
+<div class="setting-links" id="setting-links<?php echo $id?>">
+    <div class="actions dropdown options setting-links-options">
+        <div class="action toggle switcher-trigger" id="setting-links-trigger<?php echo $id?>">
+            <i class="fa fa-cog">&nbsp;</i>
+        </div>
+
+        <ul class="dropdown setting-links-dropdown" data-mage-init='{"dropdownDialog":{
+        "appendTo":"#setting-links<?php echo $id?> > .options",
+        "triggerTarget":"#setting-links-trigger<?php echo $id?>",
+        "closeOnMouseLeave": false,
+        "triggerClass":"active",
+        "parentClass":"active",
+        "buttons":null}}'>
+            <?php if($currency_custom): ?>
+            <li class="switcher-currency-wrapper">
+                <?php echo $currency_custom ?>
+            </li>
+            <?php endif; ?>
+            <?php if($store_language): ?>
+            <li class="switcher-language-wrapper">
+                <?php echo $store_language ?>
+            </li>
+        <?php endif; ?>
+        </ul>
+        
+    </div>
+</div>
+<?php endif; ?>
+
+
+
+
+

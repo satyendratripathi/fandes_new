@@ -1,0 +1,2 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1630347063;s:6:"expire";i:1661883063;s:4:"tags";s:69:"d19_CMS_WYSIWYG_IMAGES_CONTENTS,d19_LAYOUT_GENERAL_CACHE_TAG,d19_MAGE";}
+{"pageLayout":"","layout":"<container name=\"root\">\n   <block class=\"Magento\\Cms\\Block\\Adminhtml\\Wysiwyg\\Images\\Content\\Files\" name=\"wysiwyg_images.files\" template=\"Magento_Cms::browser\/content\/files.phtml\"\/>\n<\/container>\n"}

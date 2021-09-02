@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Wishlist\Block\Customer\Sidebar */
+?>
+<?php
+$wishlistHelper = $this->helper('Magento\Wishlist\Helper\Data');
+?>
+<?php if ($wishlistHelper->isAllow()) : ?>
+
+    <a href="<?php echo $this->getUrl('wishlist');?>"> <i class="fa fa-heart"></i>
+    <span class="counter">
+        <?php echo (int)$this->getWishlistItemsCount(); ?>
+    </span>
+    </a>
+<?php endif ?>

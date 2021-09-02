@@ -1,0 +1,84 @@
+// /**
+//  * Copyright © 2015 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//    Common
+//--------------------------------------
+
+& when (@media-common = true) {
+
+//
+//    Newsletter subscription
+//--------------------------------------
+.block.newsletter {
+    .form.subscribe {
+        display: table;
+        width: 100%;
+        position: relative;
+    }
+    .fieldset {
+        display: table-cell;
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+    }
+    .field {
+        margin: 0;
+        .control {
+            padding: 15px 0 0;
+            .float-left-w(100%);
+            .lib-icon-font(
+                @icon-envelope,
+                @_icon-font-size: 16px,
+                @_icon-font-line-height: 32px,
+                @_icon-font-color: @form-element-input-placeholder__color
+            );
+            &:before {
+                position: absolute;
+                padding-top: 2px;
+                .rtl-left(12px);
+                display: none;
+            }
+            display: block;
+            div.mage-error[generated]{position: absolute; top: 100%; line-height: 12px;}
+        }
+    }
+    input {
+        border: 1px solid #eee;
+        .border-radius(25px);
+        //.rtl-padding-left(35px);
+        padding: 0 15px;
+        .size(100%, 36px); .float-left();
+        color: #999; font-family: @font-footer-family;
+        font-size: @font-size-base - 1;
+    }
+    .title {
+        display: none;
+    }
+    .label {
+        .text-align-left();
+        .float-left-w(100%);
+        line-height: 22px;
+        padding-top: 12px;
+        white-space: normal;
+        border-top: 1px dotted @border-base-color;
+    }
+    .actions {
+        position: absolute;
+        bottom: 0; .rtl-right(0);
+        .fa{width: auto;}
+    }
+    .action.subscribe {
+        color: @white;
+        background: @theme-color-primary1;
+        font-family: @font-body-family;
+        border:0;
+        padding: 0 28px;
+        line-height: 36px;
+        height: 36px;
+        .border-radius(25px) !important;
+    }
+}
+}

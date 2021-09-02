@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <css src="css/styles-m.css"/>
+        <css src="css/styles-l.css"/>
+         <css src="css/animate.min.css"/>
+        <css src="css/flexslider.css"/>
+        <css src="css/font-awesome.min.css"/>
+        <css src="css/home_market.global.scss.css"/>
+        <css src="css/home_market.style.scss.css"/>
+        <css src="css/home_market.style2.scss.css"/>
+        <css src="css/html-input-range.css"/>
+        <css src="css/owl.carousel.min.css"/>
+        <css src="css/social-buttons.scss.css"/>
+        <css src="css/spr.css"/>
+        <css src="css/style.css"/>
+        <css src="css/swatch.css"/>
+        <css src="css/tada.css"/>
+        <css src="css/timber.scss.css"/>
+        <script src="assets/js/jquery.min.js" type="text/javascript"></script>  
+      <script src="js/jquery.fancybox.min.js" type="text/javascript"></script>
+      <script src="js/owl.carousel.min.js" type="text/javascript"></script>
+      <script src="js/jquery.tweet.min.js" type="text/javascript"></script>
+      <script src="js/jquery.optionSelect.js" type="text/javascript"></script>
+      <script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
+      <script src="js/jquery.easytabs.min.js" type="text/javascript"></script>
+
+        <font src="fonts/opensans/light/opensans-300.woff2"/>
+        <font src="fonts/opensans/regular/opensans-400.woff2"/>
+        <font src="fonts/opensans/semibold/opensans-600.woff2"/>
+        <font src="fonts/opensans/bold/opensans-700.woff2"/>
+        <font src="fonts/Luma-Icons.woff2"/>
+    </head>
+</page>

@@ -1,0 +1,45 @@
+
+<div id="demoFonts">
+    <h2>Generate Icon Fonts at here</h2>
+</div>
+
+<style type="text/css">
+    .row-inline {
+        width: 20%;
+        display: inline;
+        float: left;
+        margin-bottom: 20px;
+    }
+    .text-lg{
+        font-size: 32px;
+    }
+    .text-md{
+        font-size: 24px;
+    }
+    .text-sm{
+        font-size: 18px;
+    }
+    .text-xs{
+        font-size: 14px;
+    }
+</style>
+<script>
+    function copyToClipboard(element) {
+        var $temp = jQuery("<input>");
+        jQuery("body").append($temp);
+        $temp.val(jQuery(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+    }
+    require([
+			'jquery'
+			], function(){
+                jQuery(document).ready(function(){
+                    let elements = []
+                    for(var i = 106; i< 1431; i++){
+                        elements.push("<div id='icon"+i+"' class='row-inline text-lg'><span><i class='icon icon-"+i+"'></i></span>&nbsp;&nbsp;<span onclick='copyToClipboard(this)' title='Click on the text to copy to clipboard' style='cursor:pointer'>icon-"+i+"</span></div>")
+                    }
+                    jQuery("#demoFonts").append(elements.join(""))
+                })
+            })
+</script>

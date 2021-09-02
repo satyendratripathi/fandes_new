@@ -1,0 +1,12 @@
+@import url('//fonts.googleapis.com/css?family=Poppins:300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,900,900italic');body{font-family: "Poppins", arial, tahoma;font-weight: normal;}.navigation li.level0 a.level-top, .navigation ul.container .level0 > a{font-family: "Poppins";}
+				h1{font-family: "Poppins";}
+				h2{font-family: "Poppins";}
+				h3{font-family: "Poppins";}
+				h4{font-family: "Poppins";}
+				h5{font-family: "Poppins";}
+				h6{font-family: "Poppins";}
+				.price, .price-box .price{font-family: "Poppins";}
+				.btn{font-family: "Poppins";}
+				.cms-index-index #placeholder-header{display: none !important}
+.cms-index-index .header .header-placeholder .header-content{background: none}
+.cms-index-index .header .header-placeholder.active-sticky .header-content{background: #fff}

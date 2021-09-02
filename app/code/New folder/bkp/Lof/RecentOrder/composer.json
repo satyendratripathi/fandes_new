@@ -1,0 +1,25 @@
+{
+  "name": "landofcoder/module-recentorder",
+  "description": "Show beautiful recent sales popups to notify visitors of recently bought items.",
+  "require": {
+  },
+  "type": "magento2-module",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Landofcoder",
+      "email": "landofcoder@gmail.com",
+      "homepage": "https://landofcoder.com",
+      "role": "Magento 2 Extension Provider"
+  }
+  ],
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Lof\\RecentOrder\\": ""
+    }
+  }
+}

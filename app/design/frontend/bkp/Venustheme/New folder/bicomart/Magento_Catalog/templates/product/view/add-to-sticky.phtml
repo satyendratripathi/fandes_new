@@ -1,0 +1,52 @@
+<?php $helper = $this->helper("Ecomteck\Buynow\Helper\Data"); ?>
+<?php $formId = $helper->getAddToCartFormId(); ?>
+<?php $buttonTitle = $helper->getButtonTitle() ?>
+<div class="goodsCart" id="js-goodsCart"> 
+    <div class="goodsReg_tip"></div> 
+    <a href="<?= $this->getUrl("checkout/cart"); ?>" class="goodsCart_iconBtn flex-center"> 
+        <i class="icon icon-1245 font-40 goodsCart_cartIcon"> <span class="goodsCart_count js-cartNum" style="visibility:hidden;">0</span> </i> 
+    </a> 
+    <div class="goodsCart_btns" id="js-panelGoodsCartBtns">
+        <button class="btn goodsBtnCart js-btnShowAttrPanel" data-buytype="cart" type="submit" id="add-to-cart-sticky" data-mage-init='
+        {
+            "Ecomteck_Buynow/js/add-to-cart": {
+                "form": "#<?php echo $formId; ?>",
+                "adding_label": "<?= __("Adding..."); ?>",
+                "label": "<?= __("Add to Cart"); ?>"
+            }
+        }
+        '>
+            <span><?= __("Add to Cart"); ?></span>
+        </button>
+        <button class="btn goodsBtnBuyNow press js-btnShowAttrPanel"  data-buytype="buynow" type="submit" id="buy-now-sticky" data-mage-init='
+        {
+            "Ecomteck_Buynow/js/buy-now": {
+                "form": "#<?php echo $formId; ?>"
+            }
+        }
+        '>
+            <span><?= $buttonTitle ?></span>
+        </button>
+    </div> 
+</div>
+<script>
+require([
+    'jquery',
+    'Magento_Customer/js/customer-data'
+    ], function (jQuery, customerData) {
+        if(jQuery(".js-cartNum").length){
+            let cart = customerData.get('cart');
+            let count = cart().summary_count;
+            jQuery(".js-cartNum").text(count)
+            jQuery(".js-cartNum").css({"visibility":"visible"})
+            cart.subscribe(function () {
+                if (cart().summary_count !== count) {
+                    count = cart().summary_count;
+                    jQuery(".js-cartNum").text(count)
+                    jQuery("#add-to-cart-sticky").removeClass("disabled")
+                    jQuery("#add-to-cart-sticky").find("span").text("<?= __("Add to Cart"); ?>")
+                }
+            });
+        } 
+});
+</script>

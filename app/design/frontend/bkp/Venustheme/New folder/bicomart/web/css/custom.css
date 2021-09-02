@@ -1,0 +1,123 @@
+/*Custom css code at here*/
+.ves-autosearch .search_box .button-search{
+    line-height: 40px;
+}
+.sidebar-main .search-form input {
+    line-height: 30px;
+}
+.sidebar-main .brand-searchform .search-form button {
+    height: 48px;
+    top: 40px;
+}
+.product-info-main .price-box {
+    text-align: left;
+}
+.product-block .price-box .price-label{
+    display: block;
+}
+ul.ui-autocomplete li {
+    text-align: left;
+}
+.lof-show-widget .category-products .lof-recently-viewed .product-item .minimal-price-link, .price-box, .product-item-name {
+    text-align: left;
+}
+label,.label {
+    display: inline-block;
+}
+.ask-question-form h2.legend {
+    margin: inherit;
+    float: inherit;
+}
+.grid.products-grid .product-block .product-item-info:hover .product.photo,.grid.products-grid .product-block .product-item-info:focus .product.photo {
+    display: none;
+}
+.grid.products-grid .product-block .product-image .hover-image{
+    position: initial;
+}
+.grid.products-grid .product-item .product-block .product-img{
+    margin-bottom: 10px!important;
+}
+.blog-searchform {
+    float: left!important;
+}
+.sidebar-main .search-form input{
+    line-height: 20px;;
+}
+.products-list .product-block .product-item-actions {
+    position: relative!important;
+    display: block!important;
+    text-align: left!important;
+    bottom: 0px!important;
+}
+.search-results .product .image {
+    width: 20%;
+    float: left;
+}
+span.swatch-attribute-selected-option {
+    margin-left: 10px;
+}
+.action.primary{
+    padding: 12px 15px;
+}
+.tmls-widget .block-title.content-heading {
+    padding-left: 0px;
+    border-left: inherit;
+}
+@media only screen and (min-width: 992px){
+    .product-block:hover .product-item-actions {
+        top: 40%;
+        display: block;
+    }
+}
+@media (min-width: 768px), print{
+    .page-layout-2columns-left .sidebar-additional {
+        clear: inherit!important;
+        float: left!important;
+    }
+    .form-list input, .form-list textarea {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+    .ves-menutop.dropdown>.dropdown-content{
+        display: none;
+    }
+    .ves-menutop.dropdown:hover>.dropdown-content{
+        display: block;
+    }
+    .column:not(.sidebar-main) .form.contact, .column:not(.sidebar-additional) .form.contact {
+        width: 100%;
+    }
+    .page-wrapper .sidebar-main .swatch-option.text {
+        margin-bottom: 5px;
+        min-height: 55px;
+        line-height: 55px;
+        min-width: 55px;
+    }
+    .navigation, .page-header .header.panel, .header.content, .footer.content, .page-wrapper > .widget, .page-wrapper > .page-bottom, .block.category.event, .top-container, .page-main, .container {
+        max-width: 100%!important;
+    }
+}
+@media (max-width: 767px){
+    .header .search-wrapper.ves-autosearch {
+        z-index: 98;
+    }
+    .search-results .product {
+        clear: both;
+    }
+    .catalog-category-view .product-item-details {
+        text-align: left!important;
+    }
+    .product-block .product-item-actions{
+        position: relative;
+        text-align: left;
+        bottom: 0px;
+    }
+    .product-block .product-item-actions .action.add-to-cart, .product-block .product-item-actions .actions-secondary>a {
+        text-align: center;
+    }
+}
+@media (max-width: 480px){
+    .catalog-category-view .product-item-details {
+        text-align: left!important;
+    }
+}

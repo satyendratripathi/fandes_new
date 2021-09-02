@@ -1,0 +1,120 @@
+// /**
+//  * Copyright © 2016 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//    Common
+//--------------------------------------
+
+& when (@media-common = true) {
+
+.downloadable.samples {
+    margin-bottom: @indent__base;
+    dd {
+        margin: 0 0 @indent__s;
+    }
+}
+.table-downloadable-products {
+    .product-name {
+        margin-right: 15px;
+    }
+}
+.field.downloads {
+    .price-container {
+        display: inline;
+        white-space: nowrap;
+        &:before {
+            content: " + ";
+            display: inline;
+        }
+    }
+    .price-excluding-tax {
+        display: inline;
+        &:before {
+            content: " ("attr(data-label) ": ";
+        }
+        &:after {
+            content: ")";
+        }
+    }
+    .price-including-tax {
+        display: inline;
+        font-weight:  @font-weight__semibold;
+        .lib-font-size(14);
+    }
+    span {.float-left();}
+    .sample.link {
+        .float-right();
+        .rtl-margin-left(15px);
+        font-weight: normal;
+        font-size: @font-size-base;
+        font-family: @font-body-family;
+    }
+}
+.page-product-downloadable {
+    .samples{ margin: 0 0 30px;
+        .item-title{
+            .float-left(); 
+            .rtl-margin-right(15px);
+            font-size: @font-size-base - 1;
+            font-family: @font-body-secondary-family;
+            color: @theme-color-secondary;
+        }
+        .samples-item{margin-right: 0;}
+    }
+    .product-info-price .price-box{display: none;}
+    .product-add-form {
+        margin-bottom: @indent__m;
+        &:extend(.abs-add-clearfix all);
+    }
+    .product-options-bottom {
+        .field.qty {
+            display: none!important;
+        }
+        .price-box{margin: 0;}
+        //.box-tocart{float: left;}
+    }
+    .box-tocart{margin-top: 30px;}
+    .product-options-wrapper {
+        .float-left(); margin-bottom: 20px;
+        .fieldset {
+            .legend.links-title {
+                &:extend(.abs-visually-hidden all);
+            }
+            input[type=checkbox]{float: left; margin-right: 10px;}
+        }
+    }
+}
+.table-wrapper.grouped .price-box{
+    margin: 15px 0 10px; padding: 0; border: none;
+    .weee .price{font-size: 20px !important;}
+    span{line-height: 35px; .float-left();}
+}
+}
+
+//
+// Product view Desktop
+//--------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-product-downloadable {
+        .product-add-form {
+            .float-right();
+            width: 37.5%;
+            &:extend(.clearer all);
+        }
+        /* .product-options-wrapper {
+            float: left;
+            width: 46%;
+        } */
+        .product-options-bottom {
+            /* float: right;
+            width: 50%; */
+            .field.qty {
+                & + .actions {
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+}

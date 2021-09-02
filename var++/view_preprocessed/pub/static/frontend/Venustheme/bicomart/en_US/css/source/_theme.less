@@ -1,0 +1,201 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Blank theme overrides
+//  _____________________________________________
+
+//  Theme file should contain declarations (overrides) ONLY OF EXISTING variables
+//  Otherwise this theme won't be available for parent nesting
+//  All new variables should be placed in local theme lib or local theme files
+/* --------- Mixin ----------- */
+
+// Sizing shortcuts
+.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+
+// Transitions
+.transition(@transition) {
+  -webkit-transition: @transition;
+       -o-transition: @transition;
+          transition: @transition;
+}
+.translate(@x; @y) {
+  -webkit-transform: translate(@x, @y);
+      -ms-transform: translate(@x, @y); // IE9 only
+       -o-transform: translate(@x, @y);
+          transform: translate(@x, @y);
+}
+// Transformations
+
+// Opacity
+.opacity(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+// Drop shadows
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow;
+}
+
+//inline-block
+.inline-block() {
+   display: inline-block;
+   *display: inline;
+   zoom: 1;   
+}
+
+
+/* end base */
+.rtl-float-left(){
+  float: left;
+  .rtl &{
+    float: right !important;
+  }
+}
+.rtl-float-right(){
+  float: right;
+  .rtl &{
+    float: left !important;
+  }
+}
+
+.rtl-text-align-left(){
+  text-align: left;
+  .rtl &{
+    text-align: right;
+  }
+}
+.rtl-text-align-right(){
+  text-align: right;
+  .rtl &{
+    text-align: left;
+  }
+}
+
+.rtl-left(@left){
+  left: @left;
+  .rtl &{
+    right: @left;
+    left: auto;
+  }
+}
+
+.rtl-right(@right){
+  right: @right;
+  .rtl &{
+    left: @right;
+    right: auto;
+  }
+}
+.border-radius(@radius){
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius; 
+}
+.rtl-border-right(@border-color){
+  border-right: 1px solid @border-color;
+  .rtl & {
+    border-left: 1px solid @border-color;
+    border-right: none;
+  }
+}
+.rtl-border-left(@border-color){
+  border-left: 1px solid @border-color;
+  .rtl & {
+    border-right: 1px solid @border-color;
+    border-left: none;
+  }
+}
+.rtl-padding-left(@pleft){
+  padding-left: @pleft;
+  .rtl & {
+    padding-right: @pleft;
+    padding-left: inherit;
+  }
+}
+
+.rtl-padding-right(@pright){
+  padding-right: @pright;
+  .rtl & {
+    padding-left: @pright;
+    padding-right: inherit;
+  }
+}
+
+.rtl-margin-left(@mleft){
+  margin-left: @mleft;
+  .rtl & {
+    margin-right: @mleft;
+    margin-left: inherit;
+  }
+}
+
+.rtl-margin-right(@mright){
+  margin-right: @mright;
+  .rtl & {
+    margin-left: @mright;
+    margin-right: inherit;
+  }
+}
+
+/* ---------------------------------- Animation --------------------------------------- */
+/* Icon Pop */
+@-webkit-keyframes hvr-icon-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+@keyframes hvr-icon-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+/* Shine */
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+/*Convert px to rem */
+.font-size(@sizeValue) {
+  @remValue: (@sizeValue / 10);
+  font-size: ~"@{remValue}rem";
+}
+
+/* --------- Responsive Mixin ----------- */
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+
+@xs_up:      ~"only screen and (min-width: 576px)";
+@sm_up:      ~"only screen and (min-width: 768px)";
+@md_up:     ~"only screen and (min-width: 992px)";
+@lg_up:  ~"only screen and (min-width: 1024px)"; 
+
+@xs_down:      ~"only screen and (max-width: 576px)";
+@sm_down:      ~"only screen and (max-width: 767px)";
+@md_down:     ~"only screen and (max-width: 991px)";
+@lg_down:  ~"only screen and (max-width: 1024px)";
+

@@ -1,0 +1,64 @@
+/*Custom css code at here*/
+.nav-item a .icon {
+    padding-right: 5px;
+}
+.nav-item a .fa {
+    padding-right: 5px;
+}
+@media (min-width: 768px), print{
+    .store-top-menu{
+        display: block!important;
+    }
+    .ves-megamenu.top-navigation>.navigation {
+        padding: 0px!important;
+        border: 0;
+    }
+    .ves-megamenu .nav-item>a{
+        line-height: 40px!important;
+    }
+    .ves-megamenu.small-text .navigation .level0>a, .ves-megamenu.small-text .navigation .content-type-parentcart .level1>a{
+        color: #000;
+        font-weight: normal;
+        text-transform: initial;
+        font-size: 1.4rem;
+    }
+    .nav-item a .icon {
+        padding-right: 2px;
+        color: #fca53c;
+        font-size: 18px;
+    }
+    .nav-item a .fa {
+        padding-right: 2px;
+        color: #fca53c;
+        font-size: 18px;
+    }
+    .ves-megamenu.ves-vertical .navigation .level0:is(:first-child) .submenu {
+        display: block;
+    }
+}
+@media only screen and (max-width: 767px){
+    .ves-megamenu>.navigation {
+        background: transparent!important;
+    }
+    .page-wrapper .ves-vertical .dropdown .dropdown-menu:not(:first-child) {
+        left: auto !important;
+    }
+    .ves-menutop .ves-megamenu.nav-mobile .opener::before{
+        content: "\e61c";
+    }
+    .ves-menutop .ves-megamenu.nav-mobile .opener.item-active:before{
+        content: "\e60f";
+    }
+    .ves-megamenu>.navigation .nav-item>a {
+        width: 100%;
+    }
+    .ves-menutop .ves-megamenu.nav-mobile .opener {
+        padding: inherit;
+    }
+    .ves-megamenu .level0 .submenu .nav-item>a{
+        line-height: 20px;
+    }
+    .ves-megamenu .navigation .level0 .submenu .nav-item .drill-opener, .ves-megamenu .navigation .level0 .submenu .nav-item .opener {
+        line-height: 20px;
+    }
+}   

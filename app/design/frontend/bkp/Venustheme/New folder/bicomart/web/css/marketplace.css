@@ -1,0 +1,67 @@
+.rounded {
+    border-radius: 0.25rem !important;
+}
+.p-4 {
+    padding: 1.5rem !important;
+}
+.bg-gray {
+    background: #fbfbfb;
+}
+.sold-by {
+    background: #fbfbfb;
+}
+.justify-content-between {
+    -webkit-box-pack: justify !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+}
+.align-items-center {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+.-color-light {
+    opacity: 0.6;
+    font-weight: normal;
+}
+.mkpl-review .ratings .rating-links, .mkpl-review .ratings .rating-box {
+    font-size: 0.822em;
+}
+.seller-widget .seller-image img {
+    width: 120px!important;
+}
+.seller-widget .seller-item {
+    border: 1px solid #d6d3d394;
+    border-radius: 10px;
+}
+.seller-widget .seller-image,.seller-widget .seller-name {
+    float: left;
+}
+.seller-widget .seller-item:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.seller-widget .seller-item:hover {
+    border-color: #ff0000;
+}
+@media screen and (min-width: 768px){
+    .seller-profile-container .seller-description .seller-info #seller-contact {
+        margin: 5px 0;
+    }
+   
+    .btn.btn-outline-brand, .seller-profile-container .seller-description .seller-info #seller-contact  {
+        background: none;
+        border-color: #ff3a59!important;
+        color: #ff3a59!important;
+    }
+    .btn-sm, .seller-profile-container .seller-description .seller-info #seller-contact {
+        padding: 0.25rem 0.5rem!important;
+        font-size: 1.675rem;
+        line-height: 1.5;
+        border-radius: 0.2rem!important;
+    }
+    .seller-profile-container .seller-description .seller-info #seller-contact {
+        margin: 5px 0;
+    }
+}

@@ -1,0 +1,115 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php
+$ves = $this->helper('Ves\Themesettings\Helper\Theme');
+$show_addtocart = $ves->getProductPageCfg('element_settings/show_addtocart');
+
+$quantityValidator = $block->getQuantityValidators();
+//array_push($quantityValidator,'validate-greater-than-zero');
+?>
+<?php if($show_addtocart){ ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()): ?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <?php if ($block->shouldRenderQuantity()): ?>
+                <div class="field qty">
+                    <label class="label" for="qty"><span><?php /* @escapeNotVerified */ echo __('Qty') ?></span></label>
+                    <div class="control">
+                        <div class="quantity-adder">
+                            <div class="quantity-number pull-left">
+                                <input type="number"
+                                name="qty"
+                                id="qty"
+                                maxlength="12"
+                                value="<?php /* @escapeNotVerified */ echo $block->getProductDefaultQty() * 1 ?>"
+                                title="<?php /* @escapeNotVerified */ echo __('Quantity') ?>" class="input-text qty validate-greater-than-zero"
+                                data-validate="<?php echo $block->escapeHtml(json_encode($quantityValidator)) ?>"
+                                />
+                            </div>
+                            <div class="quantity-wrapper pull-left">
+                                <span class="add-up add-action fa fa-plus" data-parentqty="true"></span>  
+                                <span class="add-down add-action fa fa-minus" data-parentqty="true"></span>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            require(["jquery"], function(){
+                                jQuery(window).ready( function(){
+                                   jQuery(".quantity-adder .add-action").click( function(){
+                                    if( jQuery(this).hasClass('add-up') ) {  
+                                        jQuery(".quantity-adder .qty").val( parseInt(jQuery(".quantity-adder .qty").val()) + 1 );
+                                    }else {
+                                        if( parseInt(jQuery(".quantity-adder .qty").val())  > 1 ) {
+                                            jQuery(".quantity-adder .qty").val( parseInt(jQuery(".quantity-adder .qty").val()) - 1 );
+                                        }
+                                    }
+                                } );
+                               })
+                            });
+                        </script>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="actions">
+                <button type="submit"
+                title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
+                class="action primary tocart"
+                id="product-addtocart-button"> 
+                <i class="fa fa-shopping-basket"></i> <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
+            </button>
+            <?php echo $block->getChildHtml('', true) ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<?php if ($block->isRedirectToCartEnabled()) : ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/product/view/validation": {
+                "radioCheckboxClosest": ".nested"
+            }
+        }
+    }
+</script>
+<?php else : ?>
+<script>
+    require([
+        'jquery',
+        'mage/mage',
+        'Magento_Catalog/product/view/validation',
+        'Magento_Catalog/js/catalog-add-to-cart',
+        'mage/translate'
+    ], function ($) {
+        'use strict';
+        $('#product-addtocart-button').click(function(){
+            if($('#qty').val()<1){
+                $('.quantity-number .lof-error').remove();
+                $('.quantity-number').append($.mage.__('<div for="qty" class="mage-error lof-error">Please enter a number 1 or greater in this field.</div>'));
+            }
+        });
+        $('#product_addtocart_form').mage('validation', {
+            radioCheckboxClosest: '.nested',
+            submitHandler: function (form) {
+                var widget = $(form).catalogAddToCart({
+                    bindSubmit: false
+                });
+
+                widget.catalogAddToCart('submitForm', $(form));
+
+                return false;
+            }
+        });
+    });
+</script>
+<?php endif; ?>
+<?php } ?>

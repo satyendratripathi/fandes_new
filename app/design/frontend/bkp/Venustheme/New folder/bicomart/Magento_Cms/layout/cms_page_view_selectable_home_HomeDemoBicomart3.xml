@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Custom layout update handle CMS page Magento 2.3.4+.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    	<referenceContainer name="content">    <block class="Magento\Cms\Block\Block" name="block_slider1">        <arguments>            <argument name="block_id" xsi:type="string">block-slider1</argument>        </arguments>    </block>    <block class="Magento\Cms\Block\Block" name="block_deals">        <arguments>            <argument name="block_id" xsi:type="string">block-deals</argument>        </arguments>    </block>        <block class="Magento\Cms\Block\Block" name="block_banner9">        <arguments>            <argument name="block_id" xsi:type="string">block-banner-9</argument>        </arguments>    </block><block class="Magento\Cms\Block\Block" name="block_banner10">        <arguments>            <argument name="block_id" xsi:type="string">block-banner-10</argument>        </arguments>    </block><block class="Magento\Cms\Block\Block" name="block_banner11">        <arguments>            <argument name="block_id" xsi:type="string">block-banner-11</argument>        </arguments>    </block><block class="Magento\Cms\Block\Block" name="block_banner12">        <arguments>            <argument name="block_id" xsi:type="string">block-banner-12</argument>        </arguments>    </block><block class="Magento\Cms\Block\Block" name="block_banner13">        <arguments>            <argument name="block_id" xsi:type="string">block-banner-13</argument>        </arguments>    </block>    <block class="Magento\Cms\Block\Block" name="block_brand">        <arguments>            <argument name="block_id" xsi:type="string">block-brand</argument>        </arguments>    </block></referenceContainer>
+    </body>
+</page>

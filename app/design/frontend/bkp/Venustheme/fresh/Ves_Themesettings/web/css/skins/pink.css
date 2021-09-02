@@ -1,0 +1,89 @@
+a:hover,
+.nav-toggle:before,
+.copyright a,
+.sorter-action:before,
+.product-info-main .product-addto-links a:hover,
+.product-options-bottom .product-addto-links a:hover, 
+.block-bundle-summary .product-addto-links a:hover, 
+.page-product-downloadable .product-addto-links a:hover,
+.sidebar .block.filter .filter-options-content a:not(.swatch-option-link-layered):hover:before,
+#maincontent .row-info .widget-images:hover .image-phone,
+.productlist-widget .etabs .tab.active a,
+.productlist-widget .etabs .tab:hover a, 
+.productlist-widget .etabs .tab a:hover,
+.header-contact .call-number,
+.ves-megamenu li.level0 .fa,
+.ourservice-block:hover .fa,
+.ourservice-block:hover .ourservice-heading a,
+.product-info-stock-sku .availability .available, 
+.product-info-stock-sku .availability .unavailable,
+.block-bundle-summary .social-links a:hover,
+.page-product-downloadable .social-links a:hover,
+.product-item-info .product-item-name a:hover,
+div .ves-megamenu .dropdown-menu a:hover, 
+div .ves-megamenu .dropdown-menu .subgroup.level1 > a:hover, 
+div .ves-megamenu .dropdown-menu .subgroup .subgroup .dropdown-mega a:hover,
+div .ves-megamenu.menu-click.ves-horizontal li:hover a:hover,
+div .ves-megamenu.menu-hover.ves-horizontal li:hover a:hover,
+.cart.table-wrapper .actions-toolbar > .action-edit:before, 
+.cart.table-wrapper .actions-toolbar > .action-delete:before,
+.ves-menutop .ves-megamenu .dropdown-menu a:hover, 
+.ves-menutop .ves-megamenu .dropdown-menu .subgroup.level1 > a:hover, 
+.ves-menutop .ves-megamenu .dropdown-menu .subgroup .subgroup .dropdown-mega a:hover,
+.sidebar .block.filter .filter-options .filter-options-content a:hover,
+div .imageslider-widget:hover .slidershow-info h2, 
+div .imageslider-widget:hover .slidershow-info h3,
+.rating-summary .rating-result > span:before,
+.product-info-main .price-box .weee .price,
+div.page-not-found .norouter-logo,
+.widget-counters .counter,
+.widget-html h2
+{color: #F664A3;}
+
+.page-footer li a:hover,
+div .owl-carousel .owl-nav > div:hover:before, 
+div .owl-carousel .owl-nav > div:hover .fa,
+.ves-menutop .ves-megamenu li.level0:hover > a, 
+.ves-menutop .ves-megamenu li.level0.active > a, 
+.ves-menutop .ves-megamenu li.level0 > a.active
+{color: #F664A3 !important;}
+
+.product.info.detailed .data .title.active,
+.fotorama__nav-wrap .fotorama__thumb-border,
+.menu-dropdown > .fa
+{
+    border-color: #F664A3 !important;
+}
+
+.fotorama__nav-wrap .fotorama__thumb-border:before{border-color: transparent transparent #F664A3;}
+
+.button,
+button.primary,
+button.subscribe,
+button.action-apply,
+button.clear, button.update,
+button.share, /*button.tocart,*/
+.action.primary,
+.action.primary:hover,
+.button:hover, .button:focus,
+.product.media .icon .onsale span,
+.product-item-info .icon .onsale span,
+.cart-container .form-cart .action.continue,
+.col-highlighted .productlist-widget .product-block:before,
+.cms-index-index .ves-post.post-item .post-more,
+.block.related .block-actions .action.select,
+.bundle-options-container .action.back,
+.minicart-wrapper .action.showcart,
+.scrollup
+{
+ background-color: #F664A3 !important;
+}
+
+.scrollup:hover{
+   background-color: #ea5599;
+}
+
+div .owl-carousel .owl-dots .owl-dot:hover span{
+	background: #F664A3;
+    border-color: #F664A3;
+}

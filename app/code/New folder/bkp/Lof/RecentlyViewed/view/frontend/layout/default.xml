@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * default.xml
+ *
+ * @copyright Copyright © 2021 Lof. All rights reserved.
+ * @author    Lof
+ * @category Lof
+ * @copyright Copyright (c) 2014 Lof (<https://www.lof.com>)
+ * @license <https://www.lof.com/license-agreement.html>
+ * @Author: lof<support@lof.com>
+ * @github: <https://github.com/lof>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="Magento\Framework\View\Element\Template" name="lof_configvariable" template="Lof_RecentlyViewed::default/jsWindow.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

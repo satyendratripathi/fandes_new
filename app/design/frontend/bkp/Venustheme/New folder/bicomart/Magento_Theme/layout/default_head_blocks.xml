@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <meta name="format-detection" content="telephone=no"/>
+        <font src="fonts/Luma-Icons.woff2"/>
+    	<css src="bootstrap/css/bootstrap.min.css" />
+    	<css src="owl.carousel/assets/owl.carousel.css" />
+        <css src="fonts/font-awesome.min.css"/>
+        <css src="fonts/fonts.css"/>
+
+        <css src="css/styles-m.css"/>
+        <css src="css/styles-l.css" media="screen and (min-width: 768px)"/>
+        <css src="css/animate.min.css"/>
+        <css src="css/flexslider.css"/>
+        <css src="css/font-awesome.min.css"/>
+        <css src="css/home_market.global.scss.css"/>
+        <css src="css/home_market.style.scss.css"/>
+        <css src="css/home_market.style2.scss.css"/>
+        <css src="css/html-input-range.css"/>
+        <css src="css/owl.carousel.min.css"/>
+        <css src="css/social-buttons.scss.css"/>
+        <css src="css/spr.css"/>
+        <css src="css/style.css"/>
+        <css src="css/swatch.css"/>
+        <css src="css/tada.css"/>
+        <css src="css/timber.scss.css"/>
+        
+
+
+
+
+        
+        <!-- <css src="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" src_type="url"/> -->
+        <css src="css/custom.css" />
+        <css src="css/marketplace.css" />
+    </head>
+</page>

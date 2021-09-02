@@ -1,0 +1,157 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+
+$_product = $block->getProduct();
+$data = $this->helper('Ves\Themesettings\Helper\Data');
+$ves = $this->helper('Ves\Themesettings\Helper\Theme');
+$show_newlabel = $ves->getProductPageCfg('element_settings/show_newlabel');
+$show_salelabel = $ves->getProductPageCfg('element_settings/show_salelabel');
+$thumb_layout = $ves->getProductPageCfg('element_settings/thumb_layout');
+$thumb_location = $ves->getProductPageCfg('element_settings/thumb_location');
+$enable_zoom = $ves->getProductPageCfg('element_settings/show_zoom');
+$enable_zoom = (int)$enable_zoom;
+$zoom_magnify = $ves->getProductPageCfg('element_settings/zoom_magnify');
+$zoom_magnify = $zoom_magnify?(int)$zoom_magnify:1;
+
+$images = $block->getGalleryImages()->getItems();
+$mainImage = current(array_filter($images, function ($img) use ($block) {
+    return $block->isMainImage($img);
+}));
+
+if (!empty($images) && empty($mainImage)) {
+    $mainImage = $block->getGalleryImages()->getFirstItem();
+}
+
+$helper = $block->getData('imageHelper');
+$mainImageData = $mainImage ?
+    $mainImage->getData('medium_image_url') :
+    $helper->getDefaultPlaceholderUrl('image');
+
+
+?>
+
+<?php // Sale Icon, New Icon Block ?>
+<?php if($show_newlabel || $show_salelabel){ ?>
+<div class="label">
+    <?php
+    if($show_salelabel) {
+        $originalPrice = (float)$_product->getPrice();
+        $specialprice = $_product->getSpecialPrice();
+        $specialPriceFromDate = $_product->getSpecialFromDate();
+        $specialPriceToDate = $_product->getSpecialToDate();
+        if ($originalPrice > $specialprice) {
+            $percentage = round(($originalPrice - $specialprice) * 100 / $originalPrice);
+        }
+        $today =  time();
+        if ($specialprice) {
+                if($today >= strtotime( $specialPriceFromDate) && $today <= strtotime($specialPriceToDate) || $today >= strtotime( $specialPriceFromDate) && is_null($specialPriceToDate)) {
+                ?>
+                <span class="onsale">
+                    <?php if ($percentage) {?>
+                    <span>-<?php echo $percentage;?>%</span>
+                    <?php } ?> 
+                </span>
+            <?php
+            }
+        }
+    }
+    if($show_newlabel) {
+        $is_new = $data->checkProductIsNew( $_product );
+        if($is_new) { ?>
+        <span class="new-icon"><span><?php echo __("New");?></span></span>
+        <?php
+    }
+}
+?>
+</div>
+<?php } ?>
+
+<div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder">
+    <img
+        alt="main product photo"
+        class="gallery-placeholder__image"
+        src="<?= /* @noEscape */ $mainImageData ?>"
+    />
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-gallery-role=gallery-placeholder]": {
+            "mage/gallery/gallery": {
+                "mixins":["magnifier/magnify"],
+                "magnifierOpts": <?= /* @noEscape */ $block->getMagnifier() ?>,
+                "data": <?= /* @noEscape */ $block->getGalleryImagesJson() ?>,
+                "options": <?= /* @noEscape */ $block->getGalleryOptions()->getOptionsJson() ?>,
+                "fullscreen": <?= /* @noEscape */ $block->getGalleryOptions()->getFSOptionsJson() ?>,
+                 "breakpoints": <?= /* @noEscape */ $block->getBreakpoints() ?>
+            }
+        }
+    }
+</script>
+
+<?php if($enable_zoom): ?>
+<script type="text/javascript">
+require([
+    'jquery',
+    'Magento_Catalog/js/jquery.zoom.min'
+], function ($, zoom) {
+    var loaded = false;
+    $('.product.media .gallery-placeholder').bind("DOMSubtreeModified",function(){
+        $('.product.media .fotorama').on('fotorama:ready', function (e, fotorama, extra) {
+            //console.log('fotorama is loaded');
+            loaded = false;
+            $('.product.media .fotorama').on('fotorama:load', function (e, fotorama, extra) {
+                if(!loaded){
+                    $('.product.media .fotorama__stage .fotorama__loaded--img').trigger('zoom.destroy');
+                    $('.product.media .fotorama__stage .fotorama__active').zoom({
+                        touch:false,
+                        magnify:<?php echo $zoom_magnify; ?>
+                    });
+                    loaded = true;
+                }
+            });
+            $('.product.media .fotorama').off('fotorama:showend').on('fotorama:showend', function (e, fotorama, extra) {
+                $('.product.media .fotorama__stage .fotorama__loaded--img').trigger('zoom.destroy');
+                $('.product.media .fotorama__stage .fotorama__active').zoom({
+                    touch:false,
+                    magnify:<?php echo $zoom_magnify; ?>
+                });
+            });
+            $('.fotorama').off('fotorama:fullscreenenter').on('fotorama:fullscreenenter', function (e, fotorama, extra) {
+                $('.product.media .fotorama__stage .fotorama__loaded--img').trigger('zoom.destroy');
+                $('img.zoomImg').remove();
+            });
+            $('.fotorama').off('fotorama:fullscreenexit').on('fotorama:fullscreenexit', function (e, fotorama, extra) {
+                $('.product.media .fotorama__stage .fotorama__loaded--img').trigger('zoom.destroy');
+                $('img.zoomImg').remove();
+                $('img.fotorama__img').not('.fotorama__img--full').each(function(){
+                    $(this).after($(this).parent().children("img.fotorama__img--full"));
+                });
+                $('.product.media .fotorama__stage .fotorama__active').zoom({
+                    touch:false,
+                    magnify:<?php echo $zoom_magnify; ?>
+                });
+                $('.product.media .fotorama').off('fotorama:showend').on('fotorama:showend', function (e, fotorama, extra) {
+                    $('.product.media .fotorama__stage .fotorama__loaded--img').trigger('zoom.destroy');
+                    $('.product.media .fotorama__stage .fotorama__active').zoom({
+                        touch:false,
+                        magnify:<?php echo $zoom_magnify; ?>
+                    });
+                });
+            });
+        });
+    });
+});
+</script>
+<?php endif; ?>

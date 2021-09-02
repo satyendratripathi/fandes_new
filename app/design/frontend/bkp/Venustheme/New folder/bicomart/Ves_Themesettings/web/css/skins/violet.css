@@ -1,0 +1,43 @@
+/*
+	Skin Blue: #9881F5;
+*/
+
+a:hover, .alink:hover, .header .header-menu .menu-links li .icon,
+.page-header .page-topbar .switcher .options ul.dropdown a:hover,
+.block-service .pull-left, .header .header-menu .menu-links li a:hover,
+.product-info-main .product-list-categories a,
+.page-header .user .link-account a:hover,
+.fancybox-outer .popup_avaiable > a, .seller-info .icon,
+.ves-menutop .ves-megamenu li.level0.active > a,
+.ves-menutop .ves-megamenu li.level0:hover > a
+{color: #9881F5;}
+
+.ves-megamenu .dropdown-menu a:hover
+{color: #9881F5!important;}
+
+.product-block .product-item-actions .action.add-to-cart:hover, 
+.product-block .product-item-actions .actions-secondary > a:hover,
+button, .fancybox-skin .action_button .button,
+.header3 .ves-menutop .dropdown-toggle::before,
+.header4 .header-menu, .faq-item h4, .box-v2::before
+{background: #9881F5;}
+
+.cart-container .form-cart .actions .action,
+.lof_marketplace_wrapper #review_hidden_form .form-add .buttons-set button.button
+{background: #9881F5!important;}
+
+.action.primary, .ves-autosearch .search_box .button-search,
+.minicart-wrapper .action.showcart .counter-number,
+.page-wrapper .toolbar .modes-mode.active,
+.block-carousel .owl-carousel .owl-nav [class*=owl-]:hover,
+.page-footer .social li a:hover
+{background-color: #9881F5;}
+
+.block .block-title{border-left-color: #9881F5;}
+.rtl .block .block-title{border-left-color: transparent; border-right-color: #9881F5;}
+.block-brand li a:hover{border-color: #9881F5;}
+
+@media (min-width: 768px) {
+	.product.info.detailed .product.data.items > .item.title.active > .switch::after
+	{background: #9881F5;}
+}

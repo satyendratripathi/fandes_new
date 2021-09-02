@@ -1,0 +1,234 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var \Magento\Theme\Block\Html\Header $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$welcomeMessage = $block->getWelcome();
+?>
+
+
+
+ <!-- Navigation Bar -->
+         <nav class="nav-bar">
+            <div class="wrapper">
+               <div class="medium-down--hide" style="float: left; width: 100%; position: relative;">
+                  <div class="shop-by-collections">
+                     <div class="sidebar-collections coll-hover">
+                        <div class="sdcollections-title sb-title">
+                           <span>Staples</span>
+                        </div>
+                        <div class="sdcollections-content">
+                           <ul class="sdcollections-list">
+                              <li class="sdc-element vetical-menu1 site-nav--has-dropdown" aria-haspopup="true">
+                                 <a href="#" class="site-nav__link">
+                                    <div class="element-main">
+                                       <div class="collection-area have-icons">
+                                          <div class="collection-name">
+                                             Atta &amp; Other Flours
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </a>
+                                 <div  class="site-nav__dropdown vetical__dropdown vetical__dropdown1">
+                                    <h2 class="heading-menu">Featured</h2>
+                                    <ul>
+                                       <li class="nav-links nav-links01 grid__item one-third">
+                                          <ul>
+                                             <li class="list-product text-center">
+                                                <div class="list-product-image">
+                                                   <a href="#"><img src="assets/img/dropdown.png" alt="product"></a>
+                                                </div>
+                                                <div class="list-product-name mt-2">
+                                                   Weekend Discount 40%
+                                                </div>
+                                                <div>Lorem Ipsum Totem</div>
+                                             </li>
+                                          </ul>
+                                       </li>
+                                       <li class="grid__item one-third text-center">
+                                          <ul>
+                                             <li class="list-product">
+                                                <div class="list-product-image">
+                                                   <a href="#"><img src="assets/img/dropdown.png" alt="product"></a>
+                                                </div>
+                                                <div class="list-product-name mt-2">
+                                                   Weekend Discount 40%
+                                                </div>
+                                                <div>Lorem Ipsum Totem</div>
+                                             </li>
+                                          </ul>
+                                       </li>
+                                       <li class="grid__item one-third text-center">
+                                          <ul>
+                                             <li class="list-product">
+                                                <div class="list-product-image">
+                                                   <a href="#"><img src="assets/img/dropdown.png" alt="product"></a>
+                                                </div>
+                                                <div class="list-product-name mt-2">
+                                                   Weekend Discount 40%
+                                                </div>
+                                                <div>Lorem Ipsum Totem</div>
+                                             </li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                              <li class="sdc-element vetical-menu2 site-nav--has-dropdown" aria-haspopup="true">
+                                 <a href="#" class="site-nav__link">
+                                    <div class="element-main">
+                                       <div class="collection-area have-icons">
+                                          <div class="collection-name">
+                                             Rice &amp; Rice Products
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </a>
+                                 <div  class="site-nav__dropdown vetical__dropdown vetical__dropdown1">
+                                    <h2 class="heading-menu">Featured</h2>
+                                    <ul>
+                                       <li class="nav-links nav-links01 grid__item one-third">
+                                          <ul>
+                                             <li class="list-product text-center">
+                                                <div class="list-product-image">
+                                                   <a href="#"><img src="assets/img/dropdown.png" alt="product"></a>
+                                                </div>
+                                                <div class="list-product-name mt-2">
+                                                   Weekend Discount 40%
+                                                </div>
+                                                <div>Lorem Ipsum Totem</div>
+                                             </li>
+                                          </ul>
+                                       </li>
+                                       <li class="grid__item one-third text-center">
+                                          <ul>
+                                             <li class="list-product">
+                                                <div class="list-product-image">
+                                                   <a href="#"><img src="assets/img/dropdown.png" alt="product"></a>
+                                                </div>
+                                                <div class="list-product-name mt-2">
+                                                   Weekend Discount 40%
+                                                </div>
+                                                <div>Lorem Ipsum Totem</div>
+                                             </li>
+                                          </ul>
+                                       </li>
+                                       <li class="grid__item one-third text-center">
+                                          <ul>
+                                             <li class="list-product">
+                                                <div class="list-product-image">
+                                                   <a href="#"><img src="assets/img/dropdown.png" alt="product"></a>
+                                                </div>
+                                                <div class="list-product-name mt-2">
+                                                   Weekend Discount 40%
+                                                </div>
+                                                <div>Lorem Ipsum Totem</div>
+                                             </li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <script type="text/javascript">
+                        $(function () {
+                            $( ".sidebar-collections" ).hover(
+                              function() {
+                                $( this ).addClass( "coll-hover" );
+                              }, function() {
+                                $( this ).removeClass( "coll-hover" );
+                              }
+                            );
+                            $(".sidebar-collections .sdcollections-title").click(function(){
+                              $(this).toggleClass('opendrop');
+                            });
+                        });
+                     </script>
+                  </div>
+                  <ul class="site-nav" id="AccessibleNav">
+                     <li>
+                        <a href="#" class="site-nav__link">
+                        <span>Spices</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" class="site-nav__link">
+                        <span>Cooking Oils</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" class="site-nav__link">
+                        <span>Snacks</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" class="site-nav__link">
+                        <span>Ready to Eat</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" class="site-nav__link">
+                        <span>Breads</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" class="site-nav__link">
+                        <span>Packaged Foods</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" class="site-nav__link">
+                        <span>Beverage</span>
+                        </a>
+                     </li>
+                  </ul>
+                  <!-- begin site-nav -->
+                  <script>
+                     $(window).ready(function($) {
+                     //$('.megamenu__dropdown').css("width",$('#main-header').innerWidth());
+                     });
+                     $( window ).resize(function() {
+                     //$('.megamenu__dropdown').css("width",$('#main-header').innerWidth());
+                     });
+                  </script>
+               </div>
+            </div>
+         </nav>
+
+
+<?php if ($block->getShowPart() == 'welcome') : ?>
+    <li class="greet welcome" data-bind="scope: 'customer'">
+        <!-- ko if: customer().fullname  -->
+        <span class="logged-in"
+              data-bind="text: new String('<?= $escaper->escapeHtml(__('Welcome, %1!', '%1')) ?>').replace('%1', customer().fullname)">
+        </span>
+        <!-- /ko -->
+        <!-- ko ifnot: customer().fullname  -->
+        <span class="not-logged-in"
+              data-bind="html: '<?= $escaper->escapeHtmlAttr($welcomeMessage) ?>'"></span>
+        <?= $block->getBlockHtml('header.additional') ?>
+        <!-- /ko -->
+    </li>
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "customer": {
+                        "component": "Magento_Customer/js/view/customer"
+                    }
+                }
+            }
+        }
+    }
+    </script>
+<?php elseif ($block->getShowPart() == 'other') :?>
+    <?= $block->getChildHtml() ?>
+<?php endif ?>

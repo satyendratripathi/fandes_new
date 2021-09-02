@@ -1,0 +1,18 @@
+<?php 
+$_jsonHelper = $this->helper("\Magento\Framework\Json\Helper\Data");
+$params = [
+    "elementId" => ".myHomepageSwiper",
+    "slidesPerView" => 4,
+    "spaceBetween" => 10,
+    "pagination" => ".swiper-pagination",
+    "type" => "progressbar"
+ ];
+$params = $_jsonHelper->jsonEncode($params);
+?>
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "lofSwiper": <?php /* @noEscape */echo $params; ?>
+            }
+        }
+</script>

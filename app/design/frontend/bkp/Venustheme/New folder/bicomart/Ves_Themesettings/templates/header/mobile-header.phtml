@@ -1,0 +1,27 @@
+<div class="goodsHeader" id="js-goodsHeader">
+    <div class="goodsMenu"> 
+        <a href="<?php $this->getUrl("/"); ?>" class="goodsMenu-btn" id="js-navBtnGoPrev" data-index-url="<?php $this->getUrl("/"); ?>"> 
+            <i class="icon-back"></i> 
+        </a> 
+        <div class="goodsMenu-fill"></div> 
+        <a href="<?php $this->getUrl("/"); ?>" class="goodsMenu-btn js-indexCate_link"> 
+            <i class="icon-back_home_white"></i> 
+        </a>
+        <div class="goodsMenu-btn goodsMenu-more show" id="js-btnToggleMenu"> 
+            <i class="icon-more"></i> 
+            <ul class="goodsMenu_dropList"> 
+                <li> <a href="<?php $this->getUrl("/catalogsearch/advanced"); ?>" rel="nofollow"> <i class="icon-search"></i> <span class="font-28"><?= __("Search");?></span> </a> </li>
+                <li> <a href="<?php $this->getUrl("/customer/account"); ?>" rel="nofollow"> <i class="icon-account"></i> <span class="font-28"><?= __("My Account");?></span> </a> </li>
+                <li> <a href="<?php $this->getUrl("/sales/order/history"); ?>" rel="nofollow"> <i class="icon-history"></i> <span class="font-28"><?= __("View History");?></span> </a> </li> 
+                <li> <a href="javascript:;" rel="nofollow" id="js-btnShowShare"> <i class="icon-share"></i> <span class="font-28"><?= __("Share");?></span> </a> </li>
+                <li> <a href="<?php $this->getUrl("/contact"); ?>" rel="nofollow"> <i class="icon-dd_tk"></i> <span class="font-28"><?= __("Report Item");?></span> </a> </li>
+            </ul>
+        </div> 
+    </div>
+    <div class="goodsNav" id="js-goodsNav"> 
+        <a href="#contentarea" class="goodsNav_item js-anchorItem js-anchorItem active"><h2><?= __("Overview");?></h2></a> 
+        <a href="#tab-label-reviews" class="goodsNav_item js-reviewAnchorItem js-trackReviewSuspension"><h2><?= __("Reviews");?></h2></a> 
+        <a href="#tab-label-description" class="goodsNav_item js-anchorItem"><h2><?= __("Description");?></h2></a> 
+        <a href="#block-related-heading" class="goodsNav_item js-anchorItem"><h2><?= __("Recommend");?></h2></a> 
+    </div> 
+</div>

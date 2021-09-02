@@ -1,0 +1,128 @@
+<?php
+$ves = $this->helper('Ves\Themesettings\Helper\Theme');
+$helper = $this->helper('Ves\Themesettings\Helper\Data');
+$sticky = $ves->getHeaderCfg("sticky_settings/sticky");
+$sticky_type = $ves->getHeaderCfg("sticky_settings/sticky_type");
+$logo = $ves->getHeaderCfg("sticky_settings/logo");
+$menu = $ves->getHeaderCfg("sticky_settings/menu");
+$search = $ves->getHeaderCfg("sticky_settings/search");
+$topcart = $ves->getHeaderCfg("sticky_settings/topcart");
+$topbar = $ves->getHeaderCfg("sticky_settings/topbar");
+$enable_toplinks = $ves->getHeaderCfg("toplinks_settings/enable");
+$show_search = $ves->getHeaderCfg("search_settings/search");
+$show_topbar = $ves->getHeaderCfg("topbar/show_topbar");
+if($sticky_type == 'all'){
+	$logo = $menu = $search = $topcart = $toplinks = $topbar= true;	
+}
+?>
+<div id="ves-header" class="ves-header3">
+	<!-- Top bar -->
+	<?php if($show_topbar): ?>
+	<div class="ves-inner page-main">
+		<div class="panel wrapper page-topbar clearfix <?php echo $topbar?"sticky-item":"sticky-item-hidden"?>">
+			<div class="pull-left text-left header-contact sticky-item-hidden">
+				<?php echo $this->getChildHtml('fresh-header-contact') ?>
+			</div>
+
+			<div class="pull-left sticky-item-hidden">
+				<?php echo $this->getChildHtml('setting_links2') ?>
+			</div>
+
+			<?php if($enable_toplinks){ ?>
+				<div class="pull-left header-links-wrapper sticky-item-hidden">
+					<?php echo $this->getChildHtml('top_links') ?>
+				</div>
+			<?php } ?>
+
+			<div class="pull-right minicart-warp <?php echo $topcart?"sticky-item":"sticky-item-hidden" ?>"><?php echo $this->getChildHtml('minicart') ?>
+			</div>
+
+			<?php if($show_search): ?>
+				<div class="pull-right search-wrapper dropdown <?php echo $search?"sticky-item":"sticky-item-hidden" ?>">
+					<?php if($this->getChildHtml('topSearch')): ?>
+					<div class="dropdown-toggle" data-toggle="dropdown">
+					    <i class="fa fa-search"></i>
+					</div>
+					<?php endif; ?>
+					<div class="search-content dropdown-menu" role="menu">
+					    <?php echo $this->getChildHtml('topSearch') ?>
+					</div> 
+				</div>
+			<?php endif; ?>
+		</div>
+	</div>
+	<?php endif; ?>
+
+	<!-- header content -->
+	<div class="header-content clearfix">
+	<div class="ves-inner page-main">
+		<?php if($custom_block = $this->getChildHtml("custom_block")): ?>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 customblock-wrapper <?php echo $custom_block?"sticky-item":"sticky-item-hidden"  ?>">
+			<?php echo $custom_block; ?>
+		</div>
+		<?php endif; ?>
+
+		<div class="logo-wrapper pull-left <?php echo $logo?"sticky-item":"sticky-item-hidden" ?>">
+			<?php echo $this->getChildHtml('logo') ?>
+		</div>
+
+		<!-- Menu top -->
+		<div class="ves-menutop pull-right clearfix <?php echo $menu?"sticky-item":"sticky-item-hidden" ?>"> 
+			<?php echo $this->getChildHtml('catalog.topnav') ?>
+		</div>
+	</div>
+	</div>
+
+	<?php if($sticky){ ?>
+	<script type="text/javascript">
+		require([
+			'jquery',
+			'Ves_Themesettings/js/theme'
+			], function(){
+				function getScroll () {
+				    var b = document.body;
+				    var e = document.documentElement;
+				    return {
+				        left: parseFloat( window.pageXOffset || b.scrollLeft || e.scrollLeft ),
+				        top: parseFloat( window.pageYOffset || b.scrollTop || e.scrollTop )
+				    };
+				}
+				jQuery(document).ready(function($) {
+					var h = jQuery('.page-header').height();
+					var myHeader = jQuery('.page-header');
+					var hasBreadcrumbs = false;
+					var breadcrumbs = jQuery(".breadcrumbs");
+					if(typeof(breadcrumbs) != "undefined" && breadcrumbs.length > 0) {
+						hasBreadcrumbs = true;
+					}
+					myHeader.data( 'position', myHeader.position() );
+
+					jQuery(window).scroll(function(){
+						var hPos = myHeader.data('position'), scroll = getScroll();
+						var h_px = jQuery("#ves-header", ".page-header").outerHeight(true)+"px";
+
+						if ( hPos.top < scroll.top) {
+							jQuery('.page-header').delay(1000).addClass("navbar-fixed-top");
+							
+							var headerHeight = jQuery('.page-header').height();
+							<?php if($sticky_type == 'specify'){ ?>jQuery(".page-wrapper").css({"padding-top":headerHeight+"px"});<?php } ?>
+							jQuery(".sticky-item-hidden").css({"display":"none"});
+							if(!hasBreadcrumbs) {
+								jQuery("#maincontent").delay(1000).css("margin-top", h_px);
+							}
+						}else{
+							jQuery(".sticky-item-hidden").css({"display":""});
+							jQuery('.page-header').delay(1000).removeClass("navbar-fixed-top");
+							
+							jQuery(".page-wrapper").css({"padding-top":""});
+							if(!hasBreadcrumbs) {
+								jQuery("#maincontent").delay(1000).css({"margin-top": ""});
+							}
+						}
+					});
+				});
+			});
+	</script>
+	<?php } ?>
+	<?php echo $this->getChildHtml('ves_navigation'); ?>
+</div>

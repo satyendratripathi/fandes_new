@@ -1,0 +1,72 @@
+<?php
+$moduleId        = rand().time();
+$price_text      = __('Price');
+$module_seletor  = "autosearch".$moduleId;
+$searchHelper   = $this->helper('Lof\Autosearch\Helper\Data');
+$helper          = $this->helper('Magento\Search\Helper\Data');
+$categories_json = (isset($categories_links) && $categories_links)?Zend_Json::encode( $categories_links ): "";
+$categories_json = str_replace( array('\n','\r','\t') ,"", $categories_json);
+$root_category_id = $this->getRootCategory();
+$blockId        = 'lof-search' . $moduleId;
+?>
+<div class="<?php echo $prefix; ?> lof-autosearch search_box autosearch" id="<?php echo $blockId ?>">
+	<form method="GET" id="form<?php echo $blockId ?>" action="<?php echo $this->getCatalogSearchLink(); ?>" id="search_form_<?php echo $moduleId;?>">
+		<?/*php if(!empty($categories)) { ?>
+			<div class="filter_type category-filter category_filter pull-left hidden-sm hidden-xs">
+				<span class="icon icon-559">&nbsp;</span>
+				<select name="cat">
+					<option value="<?php echo (int)$root_category_id;?>"><?php echo __("All Categories"); ?></option>
+					<?php echo $categories; ?>
+				</select>
+			</div>
+		<?php }*/ ?>
+		<div id="<?php echo $module_seletor ?>" class="lof-search search pull-left control">
+            <input 
+                type="text"
+                name="<?php echo $helper->getQueryParamName() ?>"
+                value="<?php echo $helper->getEscapedQueryText() ?>"
+                placeholder="<?php echo __('Search for the product...'); ?>"
+                class="input-text"
+                autocomplete="off"/>
+			<button class="button-search icon icon-1202"></button>
+		</div>
+	</form>
+    <?php if($this->getConfig('general/enable_search_term')): ?>
+	<div class="clear clr"></div>
+    <?php if(($trendingCollection = $block->getTerms()) && $trendingCollection->getSize()): ?>
+        <div id="search-tags" class="search-tags">
+            <div class="title pull-left">
+                <span><?php echo __('Trending keyword'); ?></span>
+            </div>
+            <div class="content pull-left">
+            <?php foreach ($trendingCollection as $_term): ?>
+                    <a href="<?php echo $this->getCatalogSearchLink(); ?>?q=<?php echo $block->escapeHtml($_term->getQueryText()) ?>" style="font-size:<?php echo $_term->getPopularity()/100*80+90 ?>%;">
+                        <?php echo $block->escapeHtml($_term->getQueryText()) ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="message">
+            <span><?php /* @escapeNotVerified */ echo __('There are no search terms available.'); ?></span>
+        </div>
+    <?php endif; ?>
+    <?php endif; ?>
+</div>
+<script type="text/javascript">
+		require([
+			'jquery'
+			], function(){
+                jQuery(document).ready(function($) {
+                    if(!jQuery("body").hasClass("catalog-product-view")){
+                        jQuery(window).scroll(function(){
+                            if (jQuery(this).scrollTop() > 100) {
+                                jQuery('.page-header').addClass("show-search-sticky")
+                            } else {
+                                jQuery('.page-header').removeClass("show-search-sticky")
+                            }
+                        });
+                    }
+                })
+            })
+</script>

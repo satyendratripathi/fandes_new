@@ -1,0 +1,61 @@
+<div class="goodsHeader" id="js-goodsHeader">
+    <div class="goodsMenu"> 
+        <a href="<?= $this->getBaseUrl(); ?>" class="goodsMenu-btn" id="js-navBtnGoPrev" data-index-url="<?= $this->getBaseUrl(); ?>"> 
+            <i class="iconm-back icon icon-1320"></i> 
+        </a> 
+        <div class="goodsMenu-fill"></div> 
+        <a href="<?= $this->getBaseUrl(); ?>" class="goodsMenu-btn js-indexCate_link"> 
+            <i class="iconm-back_home_white  fa fa-home"></i> 
+        </a>
+        <div class="goodsMenu-btn goodsMenu-more" id="js-btnToggleMenu"> 
+            <i class="iconm-more fa fa-ellipsis-h"></i> 
+            <ul class="goodsMenu_dropList"> 
+                <li> <a href="<?= $this->getUrl("catalogsearch/advanced"); ?>" rel="nofollow"> <i class="iconm-search fa fa-search"></i> <span class="font-28"><?= __("Search");?></span> </a> </li>
+                <li> <a href="<?= $this->getUrl("customer/account"); ?>" rel="nofollow"> <i class="iconm-account fa fa-user"></i> <span class="font-28"><?= __("My Account");?></span> </a> </li>
+                <li> <a href="<?= $this->getUrl("sales/order/history"); ?>" rel="nofollow"> <i class="iconm-history fa fa-history"></i> <span class="font-28"><?= __("View History");?></span> </a> </li> 
+                <li> <a href="javascript:;" rel="nofollow" id="js-btnShowShare"> <i class="iconm-share fa fa-share"></i> <span class="font-28"><?= __("Share");?></span> </a> </li>
+                <li> <a href="<?= $this->getUrl("contact"); ?>" rel="nofollow"> <i class="iconm-dd_tk fa fa-flag"></i> <span class="font-28"><?= __("Report Item");?></span> </a> </li>
+            </ul>
+        </div> 
+    </div>
+    <div class="goodsNav" id="js-goodsNav"> 
+        <a href="#contentarea" class="goodsNav_item js-anchorItem js-anchorItem active"><h2><?= __("Overview");?></h2></a> 
+        <a href="#tab-label-reviews" class="goodsNav_item js-reviewAnchorItem js-trackReviewSuspension"><h2><?= __("Reviews");?></h2></a> 
+        <a href="#tab-label-description" class="goodsNav_item js-anchorItem"><h2><?= __("Description");?></h2></a> 
+        <a href="#block-related-heading" class="goodsNav_item js-anchorItem"><h2><?= __("Recommend");?></h2></a> 
+    </div> 
+</div>
+<script type="text/javascript">
+		require([
+			'jquery'
+			], function(){
+                jQuery("#js-btnToggleMenu").on("click", function(){
+                    jQuery(this).toggleClass("show")
+                })
+                jQuery(document).on("click", function (event) {
+                    if (jQuery(event.target).closest("#js-btnToggleMenu").length === 0) {
+                        jQuery("#js-btnToggleMenu").removeClass("show")
+                    }
+                });
+                jQuery("#js-btnShowShare").on("click", function() {
+                    jQuery("#js-popShare").show();
+                })
+                jQuery(document).on("click", function (event) {
+                    if (jQuery(event.target).closest("#js-popShare").length === 0 || jQuery(event.target).closest("#js-btnShowShare").length === 0 || jQuery(event.target).closest("#js-btnToggleMenu").length === 0) {
+                        jQuery("#js-popShare").hide()
+                    }
+                });
+                jQuery("#js-popShare .js-close").on("click", function() {
+                    jQuery("#js-popShare").hide();
+                })
+                jQuery(document).ready(function($) {
+                    jQuery(window).scroll(function(){
+                        if (jQuery(this).scrollTop() > 100) {
+                            jQuery('#js-goodsHeader').addClass("show")
+                        } else {
+                            jQuery('#js-goodsHeader').removeClass("show")
+                        }
+                    });
+                })
+            })
+</script>

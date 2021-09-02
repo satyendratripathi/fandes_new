@@ -1,0 +1,46 @@
+<?php 
+ 	$store_currency = $this->getChildHtml("store_currency");
+ 	$store_language = $this->getChildHtml("store_language");
+ 	$store_links = $this->getChildHtml("store_links");
+ 	$menu_top = $this->getChildHtml("menu_top");
+	$header_block = $this->getParentBlock();
+	$horizontal_menu = $header_block->getChildHtml('ves_horizontal_menu');
+?>
+<div class="sections nav-sections">
+	<div class="section-items nav-sections-items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+		<?php if($menu_top): ?>
+		<div class="section-item-title nav-sections-item-title menu hidden-lg hidden-md" data-role="collapsible" role="tablist" aria-controls="store.top.menu"><a class="nav-sections-item-switch" href="#store.menu"><?php echo __('Menu'); ?></a></div>
+		<?php endif; ?>
+
+		<div class="section-item-title nav-sections-item-title menu2 hidden-lg hidden-md" data-role="collapsible" role="tablist" aria-controls="store.top.menu2"><a class="nav-sections-item-switch" href="#store.menu"><?php echo __('Menu2'); ?></a></div>
+
+		<?php if($store_links): ?>
+		<div class="section-item-title nav-sections-item-title account hidden-lg hidden-md" data-role="collapsible" role="tablist" aria-controls="store.account"><a class="nav-sections-item-switch" href="#store.menu"><?php echo __('Account'); ?></a></div>
+		<?php endif; ?>
+		<?php if($store_currency || $store_language): ?>
+		<div class="section-item-title nav-sections-item-title setting hidden-lg hidden-md" data-role="collapsible" role="tablist" aria-controls="store.settings"><a class="nav-sections-item-switch" href="#store.menu"><?php echo __('Settings'); ?></a></div>
+		<?php endif; ?>
+
+		<?php if($menu_top): ?>
+		<div class="section-item-content store-top-menu" id="store.top.menu" data-role="content" role="tabpanel">
+			<?php echo $menu_top; ?>
+		</div>
+		<?php endif; ?>
+
+		<div class="section-item-content store-top-menu2 hidden-lg hidden-md" id="store.top.menu2" data-role="content" role="tabpanel">
+			<?php echo $horizontal_menu?$horizontal_menu:$block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('menu-links')->toHtml();?>
+		</div>
+
+		<?php if($store_links): ?>
+		<div class="section-item-content hidden-lg hidden-md" id="store.account" data-role="content" role="tabpanel">
+			<?php echo $this->getChildHtml("store_links"); ?>
+		</div>
+		<?php endif; ?>
+		<?php if($store_currency || $store_language): ?>
+		<div class="section-item-content hidden-lg hidden-md" id="store.settings" data-role="content" role="tabpanel">
+			<?php echo $this->getChildHtml("store_currency"); ?>
+			<?php echo $this->getChildHtml("store_language"); ?>
+		</div>
+		<?php endif; ?>
+	</div>
+</div>
